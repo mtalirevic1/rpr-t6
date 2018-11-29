@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 public class Controller {
 
     public TextField ime;
-    public TextField preizme;
+    public TextField prezime;
     public TextField indeks;
     public TextField jmbg;
     public ChoiceBox spol;
@@ -33,7 +33,7 @@ public class Controller {
     public boolean imeTacno;
     public boolean prezimeTacno;
     public boolean indeksTacan;
-    public boolean jmgbTacan;
+    public boolean jmbgTacan;
     public boolean datumTacan;
     public boolean telefonTacan;
     public boolean emailTacan;
@@ -123,6 +123,126 @@ public class Controller {
         Matcher matcher = pattern.matcher(nmbr);
         Matcher matcher1 = pattern1.matcher(nmbr);
         return (matcher.matches()|| matcher1.matches());
+    }
+
+    @FXML
+    public void initialize(){
+        imeTacno=false;
+        ime.getStyleClass().add("poljeNeispravno");
+        ime.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (isImeValid(newValue)) {
+                ime.getStyleClass().removeAll("poljeNeispravno");
+                ime.getStyleClass().add("poljeIspravno");
+                imeTacno = true;
+            } else {
+                ime.getStyleClass().removeAll("poljeIspravno");
+                ime.getStyleClass().add("poljeNeispravno");
+                imeTacno = false;
+            }
+        });
+
+        prezimeTacno=false;
+        prezime.getStyleClass().add("poljeNeispravno");
+        prezime.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (isPrezimeValid(newValue)) {
+                prezime.getStyleClass().removeAll("poljeNeispravno");
+                prezime.getStyleClass().add("poljeIspravno");
+                prezimeTacno = true;
+            } else {
+                prezime.getStyleClass().removeAll("poljeIspravno");
+                prezime.getStyleClass().add("poljeNeispravno");
+                prezimeTacno = false;
+            }
+        });
+
+        indeksTacan=false;
+        indeks.getStyleClass().add("poljeNeispravno");
+        indeks.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (isIndeksValid(newValue)) {
+                indeks.getStyleClass().removeAll("poljeNeispravno");
+                indeks.getStyleClass().add("poljeIspravno");
+                indeksTacan = true;
+            } else {
+                indeks.getStyleClass().removeAll("poljeIspravno");
+                indeks.getStyleClass().add("poljeNeispravno");
+                indeksTacan = false;
+            }
+        });
+
+        jmbgTacan=false;
+        jmbg.getStyleClass().add("poljeNeispravno");
+        jmbg.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (isJmbgValid(newValue)) {
+                jmbg.getStyleClass().removeAll("poljeNeispravno");
+                jmbg.getStyleClass().add("poljeIspravno");
+                jmbgTacan = true;
+            } else {
+                jmbg.getStyleClass().removeAll("poljeIspravno");
+                jmbg.getStyleClass().add("poljeNeispravno");
+                jmbgTacan = false;
+            }
+        });
+
+        datumTacan=false;
+        datumRodjenja.getStyleClass().add("poljeNeispravno");
+        datumRodjenja.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (isDatumValid(newValue)) {
+                datumRodjenja.getStyleClass().removeAll("poljeNeispravno");
+                datumRodjenja.getStyleClass().add("poljeIspravno");
+                datumTacan = true;
+            } else {
+                datumRodjenja.getStyleClass().removeAll("poljeIspravno");
+                datumRodjenja.getStyleClass().add("poljeNeispravno");
+                datumTacan = false;
+            }
+        });
+
+        telefonTacan=false;
+        telefon.getStyleClass().add("poljeNeispravno");
+        telefon.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (isTelephoneValid(newValue)) {
+                telefon.getStyleClass().removeAll("poljeNeispravno");
+                telefon.getStyleClass().add("poljeIspravno");
+                telefonTacan = true;
+            } else {
+                telefon.getStyleClass().removeAll("poljeIspravno");
+                telefon.getStyleClass().add("poljeNeispravno");
+                telefonTacan = false;
+            }
+        });
+
+        emailTacan=false;
+        email.getStyleClass().add("poljeNeispravno");
+        email.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (isEmailValid(newValue)) {
+                email.getStyleClass().removeAll("poljeNeispravno");
+                email.getStyleClass().add("poljeIspravno");
+                emailTacan = true;
+            } else {
+                email.getStyleClass().removeAll("poljeIspravno");
+                email.getStyleClass().add("poljeNeispravno");
+                emailTacan = false;
+            }
+        });
+
+        mjestoTacno=false;
+        mjestoRodjenja.getStyleClass().add("poljeNeispravno");
+        mjestoRodjenja.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (isMjestoValid((String) newValue)) {
+                mjestoRodjenja.getStyleClass().removeAll("poljeNeispravno");
+                mjestoRodjenja.getStyleClass().add("poljeIspravno");
+                mjestoTacno = true;
+            } else {
+                mjestoRodjenja.getStyleClass().removeAll("poljeIspravno");
+                mjestoRodjenja.getStyleClass().add("poljeNeispravno");
+                mjestoTacno = false;
+            }
+        });
+    }
+
+    public boolean isEverythingValid(){
+        if(!(imeTacno && prezimeTacno && indeksTacan && jmbgTacan && datumTacan && emailTacan && telefonTacan && mjestoTacno && spol.getValue()!=null)) return false;
+        return true;
     }
 
 }

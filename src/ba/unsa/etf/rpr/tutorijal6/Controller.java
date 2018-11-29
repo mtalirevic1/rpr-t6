@@ -245,4 +245,35 @@ public class Controller {
         return true;
     }
 
+    public void clickOnPotvrdi(ActionEvent event) {
+        if (!isEverythingValid()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Nije validno");
+            alert.setHeaderText("Unos podataka o studentu nije validan!");
+            alert.setContentText("Crvenom bojom označeni su podaci koji su pogrešni ili nedostaju.");
+            alert.show();
+        }
+        else {
+            System.out.println("PODACI O STUDENTU");
+            System.out.println("*Osnovni podaci* \n" + "Ime i prezime: " + ime.getText() + " " + prezime.getText() + "\nBroj indeksa: " + indeks.getText() + "\nSpol: " + spol.getValue().toString());
+            System.out.println("*Detaljni lični podaci* \n" + "JMBG: " + jmbg.getText() + "\nDatum rođenja: " + datumRodjenja.getValue().toString() + "\nMjesto rođenja: " + mjestoRodjenja.getValue().toString());
+            System.out.println("*Kontakt podaci* ");
+            if (!adresa.getText().isEmpty()) System.out.println("Kontakt adresa: " + adresa.getText());
+            else if (!telefon.getText().isEmpty()) System.out.println("Kontakt telefon: " + telefon.getText());
+            System.out.println("E-mail adresa: " + email.getText());
+            if (odsjek.getValue() != null || godStudija.getValue() != null || ciklusStudija.getValue() != null || redovan.getValue() != null || boracka.getValue() != null)
+                System.out.println("Podaci o studiju ");
+            if (odsjek.getValue() != null)
+                System.out.println("Smjer: " + odsjek.getValue().toString());
+            if (godStudija.getValue() != null)
+                System.out.println("Godina: " + godStudija.getValue().toString());
+            if (godStudija.getValue() != null)
+                System.out.println("Ciklus: " + ciklusStudija.getValue().toString());
+            if (redovan.getValue() != null)
+                System.out.println("Status: " + redovan.getValue().toString());
+            if(boracka.getValue() != null)
+                System.out.println("Boračka kategorija: " + boracka.getValue().toString());
+
+        }
+    }
 }

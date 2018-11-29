@@ -1,0 +1,7 @@
+.poljeIspravno{
+    -fx-control-inner-background: rgba(16, 175, 16, 0.88)
+}
+
+.poljeNeispravno{
+    -fx-control-inner-background: rgba(223, 0, 6, 0.62)
+}

@@ -1,8 +1,251 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="ba.unsa.etf.rpr.tutorijal6.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane hgap="10.0" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.tutorijal6.Controller">
+    <stylesheets>
+        <URL value="@style.css">
+        </URL>
+    </stylesheets>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+    <children>
+        <TitledPane animated="false" prefWidth="202.0" text="Osnovni podaci">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <GridPane layoutY="45.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="60.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="140.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Ime :" textAlignment="CENTER" />
+                                <TextField fx:id="ime" promptText="Ime studenta" GridPane.columnIndex="1">
+                                    <tooltip>
+                                        <Tooltip text="Unos imena je obavezan." />
+                                    </tooltip></TextField>
+                                <TextField fx:id="prezime" promptText="Prezime studenta" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <tooltip>
+                                        <Tooltip text="Unos prezimena je obavezan." />
+                                    </tooltip></TextField>
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Prezime :" textAlignment="CENTER" GridPane.rowIndex="1" />
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="Indeks :" textAlignment="CENTER" GridPane.rowIndex="2" />
+                                <TextField fx:id="indeks" promptText="Broj indeksa" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <tooltip>
+                                        <Tooltip text="Unos broja indeksa je obavezan." />
+                                    </tooltip></TextField>
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="65.0" text="Pol :" GridPane.rowIndex="3" />
+                                <ChoiceBox fx:id="spol" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Muški" />
+                                            <String fx:value="Ženski" />
+                                        </FXCollections>
+                                    </items>
+                                    <tooltip>
+                                        <Tooltip text="Izbor pola je obavezan." />
+                                    </tooltip>
+                                </ChoiceBox>
+                            </children>
+                        </GridPane>
+                    </children></AnchorPane>
+            </content>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+        </TitledPane>
+        <TitledPane animated="false" text="Detaljni lični podaci" GridPane.columnIndex="1">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <GridPane layoutY="45.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="89.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="111.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="101.0" text="JMBG :" />
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="102.0" text="Datum rođenja :" GridPane.rowIndex="1" />
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="Mjesto rođenja :" GridPane.rowIndex="2" />
+                                <TextField fx:id="jmbg" prefHeight="25.0" prefWidth="113.0" promptText="JMBG" GridPane.columnIndex="1">
+                                    <tooltip>
+                                        <Tooltip text="Unos JMBG-a je obavezan." />
+                                    </tooltip></TextField>
+                                <DatePicker fx:id="datumRodjenja" editable="false" promptText="Datum" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <tooltip>
+                                        <Tooltip text="Unos datuma rođenja je obavezan." />
+                                    </tooltip></DatePicker>
+                                <ComboBox fx:id="mjestoRodjenja" editable="true" prefWidth="150.0" promptText="Mjesto" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Sarajevo" />
+                                            <String fx:value="Banja Luka" />
+                                            <String fx:value="Tuzla" />
+                                            <String fx:value="Mostar" />
+                                            <String fx:value="Zenica" />
+                                            <String fx:value="Bihać" />
+                                        </FXCollections>
+                                    </items>
+                                    <tooltip>
+                                        <Tooltip text="Unos mjesta rođenja je obavezan." />
+                                    </tooltip>
+                                </ComboBox>
+                            </children>
+                        </GridPane>
+                    </children></AnchorPane>
+            </content>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+        </TitledPane>
+        <TitledPane animated="false" text="Kontakt podaci" GridPane.rowIndex="1">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <GridPane layoutY="45.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="91.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.0" minWidth="10.0" prefWidth="109.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="102.0" text="Kontakt adresa :" />
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="103.0" text="Kontakt telefon :" GridPane.rowIndex="1" />
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="E-mail adresa :" GridPane.rowIndex="2" />
+                                <TextField fx:id="adresa" promptText="Kontakt adresa" GridPane.columnIndex="1" />
+                                <TextField fx:id="telefon" promptText="xxx-xxxxxx(x)" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <TextField fx:id="email" promptText="E-mail adresa" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <tooltip>
+                                        <Tooltip text="Unos e-mail adrese je obavezan." />
+                                    </tooltip></TextField>
+                            </children>
+                        </GridPane>
+                    </children></AnchorPane>
+            </content>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+        </TitledPane>
+        <TitledPane animated="false" text="Podaci o studiju" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <GridPane layoutY="15.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="10.0" prefWidth="106.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="94.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="106.0" text="Odsjek :" />
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="129.0" text="Godina :" GridPane.rowIndex="1" />
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="113.0" text="Ciklus :" GridPane.rowIndex="2" />
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="131.0" text="Status :" GridPane.rowIndex="3" />
+                                <Label text="Boračka kategorija :" GridPane.rowIndex="4" />
+                                <ChoiceBox fx:id="odsjek" prefWidth="150.0" GridPane.columnIndex="1">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="AE" />
+                                            <String fx:value="EE" />
+                                            <String fx:value="TK" />
+                                            <String fx:value="RI" />
+                                        </FXCollections>
+                                    </items>
+                                </ChoiceBox>
+                                <ChoiceBox fx:id="godStudija" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Prva" />
+                                            <String fx:value="Druga" />
+                                            <String fx:value="Treća" />
+                                        </FXCollections>
+                                    </items>
+                                </ChoiceBox>
+                                <ChoiceBox fx:id="ciklusStudija" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Bachelor" />
+                                            <String fx:value="Master" />
+                                            <String fx:value="Doktorski studij" />
+                                            <String fx:value="Stručni studij" />
+                                        </FXCollections>
+                                    </items>
+                                </ChoiceBox>
+                                <ChoiceBox fx:id="redovan" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="Redovan" />
+                                            <String fx:value="Samofinansirajući" />
+                                        </FXCollections>
+                                    </items>
+                                </ChoiceBox>
+                                <ChoiceBox fx:id="boracka" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="DA" />
+                                            <String fx:value="NE" />
+                                        </FXCollections>
+                                    </items>
+                                </ChoiceBox>
+                            </children>
+                        </GridPane>
+                    </children></AnchorPane>
+            </content>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+        </TitledPane>
+        <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#clickOnPotvrdi" prefHeight="30.0" prefWidth="415.0" text="Potvrdi" GridPane.columnSpan="2" GridPane.rowIndex="2">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+    </children>
 </GridPane>

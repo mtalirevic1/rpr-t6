@@ -5,6 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.awt.*;
@@ -29,6 +30,7 @@ public class Controller {
     public ChoiceBox ciklusStudija;
     public ChoiceBox redovan;
     public ChoiceBox boracka;
+    public Button confirmButton;
 
     public boolean imeTacno;
     public boolean prezimeTacno;
